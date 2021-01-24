@@ -21,6 +21,7 @@ p + guides(x = guide_axis(angle = 90))
 ```
 
 ```{r}
+# Combining by month
 library(dplyr)
 library(lubridate)
 
