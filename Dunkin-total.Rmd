@@ -41,3 +41,47 @@ p <- ggplot(bymonth, aes(x=date(month), y=price)) +
 p + guides(x = guide_axis(angle = 90))
 ```
 
+```{r}
+# Creating data frames for months in year
+month2019 <- c(10, 11, 12)
+#month2019 <- month.abb[month2019]
+total2019 <- c(29.48, 36.20, 40.49)
+
+df2019 <- data.frame(month2019, total2019)
+
+print(df2019)
+
+g <- ggplot(df2019, aes(x=month2019, y=total2019)) +
+      geom_bar(stat = "identity") +
+      #geom_point()
+    xlab("Month") + 
+    ylab("Total in USD") +
+    ggtitle("Monthly Total")  
+
+g + guides(x = guide_axis(angle = 90))
+
+ggsave(file="dunkin-chart-2019-month.png", width=10, height=5, dpi=300)
+```
+
+```{r}
+# Creating data frames for months in year
+month2020 <- c(1:12)
+#month2020 <- month.abb[month2020]
+total2020 <- c(30.54, 24.81, 36.29, 38.19, 38.43, 40.06, 55.99, 31.55, 49.74, 55.16, 46.86, 37.19)
+
+df2020 <- data.frame(month2020, total2020)
+
+print(df2020)
+
+g <- ggplot(df2020, aes(x=month2020, y=total2020)) +
+      geom_bar(stat = "identity") +
+      #geom_point() + 
+    xlab("Month") + 
+    ylab("Total in USD") +
+    ggtitle("Monthly Total") 
+
+g + guides(x = guide_axis(angle = 45))
+
+ggsave(file="dunkin-chart-2020-month.png", width=10, height=5, dpi=300)
+```
+
